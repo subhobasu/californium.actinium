@@ -3,6 +3,7 @@ package org.eclipse.californium.actinium.jscoap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.Set;
 import java.awt.Color;
 import java.lang.reflect.InvocationTargetException;
@@ -28,6 +29,7 @@ public class PhysicalAPI {
 
 	Object n;
 	//String s = "newLight";
+	String learn;
 	Class<?> c;
 	LinkedList<HardwareResource> hardwareResources;
 
@@ -35,16 +37,31 @@ public class PhysicalAPI {
 		def();
 		paramColor = new Class[1];
 		paramColor[0] = Color.class;
-		switch (s) {
-		case "light1":
+		Random random = new Random();
+		if (random.nextInt(2)==0)
+			{n = new newLight(); System.out.println("Random:0");}
+		else if(random.nextInt(2)==1)
+			{n = new newLight2(); System.out.println("Random:1");}
+/*		
+		if(s.equalsIgnoreCase("light1"))
 			n = new newLight();
+		else if(s.equalsIgnoreCase("light2"))
+			n = new newLight2();
+*/
+		if (n instanceof newLight)
+			learn="light1";
+		else if(n instanceof newLight2)
+			learn="light2";
+		switch (learn) {
+		case "light1":
+			//n = new newLight();
 			c = newLight.class;
 			selected = light1_def;
 			paramColor = new Class[1];
 			paramColor[0] = Color.class;
 			break;
 		case "light2":
-			n = new newLight2();
+			//n = new newLight2();
 			c = newLight2.class;
 			selected = light2_def;
 			paramColor = new Class[1];
