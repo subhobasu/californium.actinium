@@ -16,6 +16,8 @@
  ******************************************************************************/
 package org.eclipse.californium.actinium.plugnplay;
 
+import org.eclipse.californium.actinium.jscoap.newLight;
+
 import jdk.internal.dynalink.beans.StaticClass;
 import jdk.nashorn.api.scripting.NashornScriptEngine;
 import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
@@ -81,7 +83,9 @@ public class JavaScriptApp extends AbstractApp implements JavaScriptCoapConstant
 		"java.text",
 		"org.eclipse.californium.core.coap", // Response
 		"org.eclipse.californium.actinium.jscoap", // CoapRequest
-		"org.eclipse.californium.actinium.jscoap.jserror" // CoAPRequest RequestErrorException
+		"org.eclipse.californium.actinium.jscoap.jserror", // CoAPRequest RequestErrorException
+		"org.eclipse.californium.actinium.hw", //light test
+		"org.eclipse.californium.actinium.hw.resources" //light test
 	};
 
 	private AppContext context;
@@ -144,6 +148,9 @@ public class JavaScriptApp extends AbstractApp implements JavaScriptCoapConstant
 			// Load JavaScript code
 			String path = appcfg.getProperty(AppConfig.DIR_PATH) + appcfg.getProperty(AppConfig.APP) + "." + AppType.getAppSuffix(appcfg.getProperty(AppConfig.TYPE));
 			String code = Utils.readFile(path);
+
+//Draw lightbulb
+//newLight n = new newLight();
 
 		    // execute code
 		    execute(code);
