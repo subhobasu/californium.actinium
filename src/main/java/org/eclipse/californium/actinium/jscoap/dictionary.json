@@ -1,0 +1,4 @@
+{
+  def1:{class:"newLight", functions:[{setColor:"setColor"}, {getColor:"getColor"}]},
+  def2:{class:"newLight2", functions:[{setColor:"setColor2"}, {getColor:"getColor2"}]}
+}

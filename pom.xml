@@ -156,6 +156,11 @@
 
 	<dependencies>
 		<dependency>
+                        <groupId>org.json</groupId>
+                        <artifactId>json</artifactId>
+                        <version>20090211</version>
+                </dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -185,6 +190,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
+					<skipTests>true</skipTests>
 					<source>${project.build.javaVersion}</source>
 					<target>${project.build.javaVersion}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
